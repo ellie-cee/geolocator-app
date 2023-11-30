@@ -6,6 +6,7 @@ import json
 import os
 import geoip2.database
 import sys
+from urlparse import urlparse
 
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 config = json.load(open(f'{path}/config.json'))
@@ -27,8 +28,9 @@ def helloWorld():
 
 @app.route("/locate")
 def locateASN():
+    url = urlparse(request.headers.get("Origin")).netloc.replace("www.","")
     print(request.headers.get("X-Forwarded-For"),file=sys.stderr)
-    print(request.headers)
+    print(url)
     resp = cr.country(request.headers.get("X-Forwarded-For"))
     print(resp,file=sys.stderr)
     return Response(
