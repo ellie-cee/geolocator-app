@@ -29,6 +29,7 @@ def helloWorld():
 @app.route("/locate/<key>")
 def locateASN(key):
     url = urlparse(request.headers.get("Origin")).netloc.replace("www.","")
+    print(json.dumps(key,url,config["sites"]),file=sys.stderr)
     if url in config["sites"]:
         if config["sites"][url]["key"]==key:
             print(request.args,file=sys.stderr)
