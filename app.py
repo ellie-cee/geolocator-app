@@ -6,7 +6,7 @@ import json
 import os
 import geoip2.database
 import sys
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 config = json.load(open(f'{path}/config.json'))
