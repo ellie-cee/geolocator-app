@@ -21,6 +21,7 @@ CORS(
 
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 reader = geoip2.database.Reader(f'{path}/GeoLite2-ASN.mmdb') 
+cr = geoip2.database.Reader(f'{path}/GeoLite2-Country.mmdb') 
 
 @app.route("/")
 def helloWorld():
@@ -29,7 +30,7 @@ def helloWorld():
 @app.route("/locate")
 def locateASN():
     print(request.headers.get("X-Forwarded-For"),file=sys.stderr)
-    resp = reader.asn(request.headers.get("X-Forwarded-For"))
+    resp = reader.country(request.headers.get("X-Forwarded-For"))
     print(resp,file=sys.stderr)
     return Response(
         json.dumps({"msg":f"pewp"}),
