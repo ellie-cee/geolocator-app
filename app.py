@@ -27,6 +27,7 @@ def helloWorld():
 
 @app.route("/locate")
 def locateASN():
+    print(request.headers,file=sys.stderr)
     resp = reader.asn(request.remote_addr)
     print(resp,file=sys.stderr)
 
