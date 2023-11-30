@@ -7,20 +7,17 @@ import os
 import geoip2.database
 import sys
 
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+config = json.load(open(f'{path}/config.json'))
 app = Flask(__name__)
 CORS(
     app,
     resources=r"/*",
-    origins=[
-        "https://reuzel.com",
-        "https://reuzelinc.myshopify.com",
-        "https://reuzel.uk",
-        "https://uk-reuzel.myshopify.com",
-    ]
+    origins=config.origins
 )
 
-config = json.load(open(f'{path}/config.json'))
-path = os.path.join(os.path.dirname(os.path.abspath(__file__)))
+
+
 reader = geoip2.database.Reader(f'{path}/GeoLite2-ASN.mmdb') 
 cr = geoip2.database.Reader(f'{path}/GeoLite2-Country.mmdb') 
 
