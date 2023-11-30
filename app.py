@@ -26,7 +26,7 @@ cr = geoip2.database.Reader(f'{path}/GeoLite2-Country.mmdb')
 def helloWorld():
   return "jfod;w fpn9y9 nr0qny"
 
-@app.route("/locate{key}")
+@app.route("/locate/<key>")
 def locateASN(key):
     url = urlparse(request.headers.get("Origin")).netloc.replace("www.","")
     if url in config["sites"]:
