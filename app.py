@@ -30,7 +30,7 @@ def helloWorld():
 @app.route("/locate")
 def locateASN():
     print(request.headers.get("X-Forwarded-For"),file=sys.stderr)
-    resp = reader.country(request.headers.get("X-Forwarded-For"))
+    resp = cr.country(request.headers.get("X-Forwarded-For"))
     print(resp,file=sys.stderr)
     return Response(
         json.dumps({"msg":f"pewp"}),
