@@ -35,7 +35,7 @@ def locateASN(key):
             print(request.args,file=sys.stderr)
             resp = cr.country(request.headers.get("X-Forwarded-For"))
             return Response(
-                json.dumps({"continent":resp.continent.code,"country":resp.country.code}),
+                json.dumps({"continent":resp.continent.code,"country":resp.country.iso_code}),
                 status=200,
                 mimetype='application/json'
             )
