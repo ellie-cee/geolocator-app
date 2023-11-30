@@ -28,9 +28,9 @@ def helloWorld():
 
 @app.route("/locate")
 def locateASN():
-    print(request.headers,file=sys.stderr)
-   # resp = reader.asn(request.remote_addr)
-   # print(resp,file=sys.stderr)
+    print(request.headers.get("X-Forwarded-For"),file=sys.stderr)
+    resp = reader.asn(request.headers.get("X-Forwarded-For"))
+    print(resp,file=sys.stderr)
     return Response(
         json.dumps({"msg":f"pewp"}),
         status=200,
