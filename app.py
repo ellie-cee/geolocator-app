@@ -30,7 +30,7 @@ def helloWorld():
 def locateASN():
     url = urlparse(request.headers.get("Origin")).netloc.replace("www.","")
     if url in config.sites:
-        if config.sites[url]["key"]==request.args.get(key)
+        if config.sites[url]["key"]==request.args.get(key):
             resp = cr.country(request.headers.get("X-Forwarded-For"))
             return Response(
                 json.dumps({"continent":resp.continent.code,"country":resp.country.code}),
