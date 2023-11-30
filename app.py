@@ -38,7 +38,7 @@ def locateASN():
                 mimetype='application/json'
             )
     return Response(
-        json.dumps({"continent":"","country":}),
+        json.dumps({"msg":"ACCRESS DENIED","continent":"","country":""}),
         status=403,
         mimetype='application/json'
     )
