@@ -29,13 +29,17 @@ def helloWorld():
 @app.route("/locate")
 def locateASN():
     url = urlparse(request.headers.get("Origin")).netloc.replace("www.","")
-    print(request.headers.get("X-Forwarded-For"),file=sys.stderr)
-    print(url)
-    resp = cr.country(request.headers.get("X-Forwarded-For"))
-    print(resp,file=sys.stderr)
+    if url in config.sites:
+        if config.sites[url]["key"]==request.args.get(key)
+            resp = cr.country(request.headers.get("X-Forwarded-For"))
+            return Response(
+                json.dumps({"continent":resp.continent.code,"country":resp.country.code}),
+                status=200,
+                mimetype='application/json'
+            )
     return Response(
-        json.dumps({"msg":f"pewp"}),
-        status=200,
+        json.dumps({"continent":"","country":}),
+        status=403,
         mimetype='application/json'
     )
 
