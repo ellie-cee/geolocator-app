@@ -1,18 +1,16 @@
 {
     "sites":{
-        "reuzel.com":{
-            "key":"e7cca18a-8f22-11ee-b9d1-0242ac120002"
+        "site.com":{
+            "key":""
         },
-        "reuzel.uk":{
-            "key":"e7cca18a-8f22-11ee-b9d1-0242ac120002"
+        "site.uk":{
+            "key":""
         }
     },
     "origins":[
-        "https://reuzel.com",
-        "https://www.reuzel.com",
-        "https://reuzelinc.myshopify.com",
-        "https://reuzel.uk",
-        "https://www.reuzel.uk",
-        "https://uk-reuzel.myshopify.com"
+        "https://site.com",
+        "https://www.site.com",
+        "https://site.uk",
+        "https://www.site.uk",
     ]
 }
